@@ -33,6 +33,7 @@ class Chapter03 extends FlatSpec with Matchers {
     init(list) should be (List(1,2))
   }
 
+  // 3.11
   "foldRight" should "able to sum" in {
     foldRight(list, 0)(_ + _) should be (6)
   }
@@ -40,19 +41,19 @@ class Chapter03 extends FlatSpec with Matchers {
   "foldRightViaReverse" should "able to sum" in {
     foldRightViaReverse(list, 0)(_ + _) should be (6)
   }
-
+  // 3.11
   it should "able to product" in {
     foldRight(list, 1)(_ * _) should be (6)
   }
-
+  // 3.11
   "foldLeft" should "able to sum" in {
     foldLeft(list, 0)(_ + _) should be (6)
   }
-
+  // 3.11
   it should "able to product" in {
     foldLeft(list, 1)(_ * _) should be (6)
   }
-
+  // 3.11
   "len" should "compute length" in {
     len(list) should be (3)
   }
@@ -82,10 +83,11 @@ class Chapter03 extends FlatSpec with Matchers {
     concat(List(list, List(4,5))) should be (List(1,2,3,4,5))
   }
 
+  // 3.16
   "map" should "mapping values" in {
     map(list)(_ + 1) should be (List(2,3,4))
   }
-
+  // 3.17
   it should "mapping values to strings" in {
     map(List(1.1, 2.2, 3.3))(_.toString) should be (List("1.1", "2.2", "3.3"))
   }
@@ -102,8 +104,8 @@ class Chapter03 extends FlatSpec with Matchers {
     filterViaFlatMap(list)(_ > 2) should be (List(3))
   }
 
+   // 3.22
   "zipWith" should "zipping values with function" in {
     zipWith(List(1,2,3), List(4,5,6))(_ + _) should be (List(5,7,9))
   }
-
 }
