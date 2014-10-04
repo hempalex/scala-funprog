@@ -108,4 +108,10 @@ class Chapter03 extends FlatSpec with Matchers {
   "zipWith" should "zipping values with function" in {
     zipWith(List(1,2,3), List(4,5,6))(_ + _) should be (List(5,7,9))
   }
+
+  it should "working on diferent sizes of lists" in {
+    zipWith(List(1,2), List(4,5,6))(_ + _) should be (List(5,7))
+    zipWith(List(1,2,3), List(4,5))(_ + _) should be (List(5,7))
+  }
+
 }

@@ -29,7 +29,7 @@ object List {
         case Cons(_, t) => if (n > 0) drop(t, n - 1) else xs
       }
 
-  // needed to zipWith
+  // not needed at all, just use pattern matching
   def head[A](xs: List[A]): A = xs match {
     case Nil => throw new NoSuchElementException("head of empty list")
     case Cons(h, t) => h
@@ -125,9 +125,12 @@ object List {
   def filterViaFlatMap[A](as: List[A])(f: A => Boolean): List[A] = flatMap(as)((x) => if (f(x)) List(x) else Nil)
 
   // 3.23
-  def zipWith[A, B, C](a1: List[A], a2: List[B])(f: (A, B) => C): List[C] = a1 match {
+  def zipWith[A, B, C](a1: List[A], a2: List[B])(f: (A, B) => C): List[C] = a2 match {
     case Nil => Nil
-    case Cons(h, t) => Cons(f(h, head(a2)), zipWith(t, tail(a2))(f))
+    case Cons(h2, t2) => a1 match {
+      case Nil => Nil
+      case Cons(h1, t1) => Cons(f(h1, h2), zipWith(t1, t2)(f))
+    }
   }
 
 }
