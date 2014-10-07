@@ -114,4 +114,18 @@ class Chapter03 extends FlatSpec with Matchers {
     zipWith(List(1,2,3), List(4,5))(_ + _) should be (List(5,7))
   }
 
+
+  // 3.24
+  "hasSubsequence" should "find subseqence" in {
+    hasSubsequence(List(1,2,3,4), List(1,2)) should be (true)
+    hasSubsequence(List(1,2,3,4), List(2,3)) should be (true)
+    hasSubsequence(List(1,2,3,4), List(3,4)) should be (true)
+    hasSubsequence(List(1,2,3,1,2,3,4,1), List(3,4)) should be (true)
+  }
+
+  it should "return false is not subsequence found" in {
+    hasSubsequence(List(1,2,3,4), List(2,1)) should be (false)
+    hasSubsequence(List(1,2,3,4), List(3,2)) should be (false)
+    hasSubsequence(List(1,2,3,4), List(1,3)) should be (false)
+  }
 }

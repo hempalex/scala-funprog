@@ -133,5 +133,17 @@ object List {
     }
   }
 
+  // 3.24
+  def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = {
+
+    def go[A](l1: List[A], l2: List[A]): Boolean = (l1, l2) match {
+      case (_, Nil) => true
+      case (Nil, _) => false
+      case (Cons(h1, t1), Cons(h2, t2)) => if (h1 == h2) go(t1, t2) else go(t1, sub)
+    }
+
+    go(sup, sub)
+  }
+
 }
 
