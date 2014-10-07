@@ -2,6 +2,9 @@ import org.scalatest._
 import funprog.List
 import funprog.List._
 
+import funprog.{Tree, Branch, Leaf}
+import funprog.Tree._
+
 class Chapter03 extends FlatSpec with Matchers {
   val list = List(1, 2, 3)
 
@@ -127,5 +130,12 @@ class Chapter03 extends FlatSpec with Matchers {
     hasSubsequence(List(1,2,3,4), List(2,1)) should be (false)
     hasSubsequence(List(1,2,3,4), List(3,2)) should be (false)
     hasSubsequence(List(1,2,3,4), List(1,3)) should be (false)
+  }
+
+
+  val t = Branch(Leaf(1), Leaf(2))
+
+  "Tree.size" should "return size of tree" in {
+    Tree.size(t) should be (3)
   }
 }
