@@ -5,6 +5,7 @@
       <configuration>
         <option name="compilerLibraryLevel" value="Project" />
         <option name="compilerLibraryName" value="scala-compiler.jar" />
+        <option name="languageLevel" value="Scala 2.11" />
       </configuration>
     </facet>
   </component>
@@ -16,9 +17,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="scala-compiler.jar" level="project" />
     <orderEntry type="library" name="scala-library.jar" level="project" />
-    <orderEntry type="library" name="scalatest_2.11-2.2.1" level="project" />
-    <orderEntry type="library" name="scala-xml_2.11-1.0.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="scalatest_2.11-2.2.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="scala-xml_2.11-1.0.2" level="project" />
   </component>
 </module>
 
