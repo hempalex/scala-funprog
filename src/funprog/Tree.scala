@@ -11,9 +11,9 @@ object Tree {
     case Leaf(v) => f(v)
   }
 
-   def size[A](t: Tree[A]): Int = fold(t)(_ => 1)((l, r) => l + r + 1)
-   def maximum(t: Tree[Int]): Int = fold(t)(x => x)((l, r) => l max r)
-   def depth[A](t: Tree[A]): Int = fold(t)(_ => 1)((l, r) => (l max r) + 1)
-   def map[A,B](t: Tree[A])(f: A => B): Tree[B] = fold(t)(x => Leaf(f(x)): Tree[B])((l, r) => Branch(l, r))
+  def size[A](t: Tree[A]): Int = fold(t)(_ => 1)((l, r) => l + r + 1)
+  def maximum(t: Tree[Int]): Int = fold(t)(identity)((l, r) => l max r)
+  def depth[A](t: Tree[A]): Int = fold(t)(_ => 1)((l, r) => (l max r) + 1)
+  def map[A,B](t: Tree[A])(f: A => B): Tree[B] = fold(t)(x => Leaf(f(x)): Tree[B])((l, r) => Branch(l, r))
 
 }
